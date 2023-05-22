@@ -1,0 +1,40 @@
+﻿<Window x:Class="MultiLocations.FenPaiements"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MultiLocations"
+        mc:Ignorable="d"
+        Title="Paiements" Height="358" Width="683" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFDCA4ED"/>
+                <GradientStop Color="#FFDEF4F6" Offset="1"/>
+                <GradientStop Color="#FFAAE1F0" Offset="0.285"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Label Content="Paiements" HorizontalAlignment="Left" Grid.Row="0"  FontSize="40" FontFamily="Colonna MT" Margin="15,0,0,0" >
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HotTrackColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <Label x:Name="lblCount" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="2"  FontSize="14" />
+        <ListBox x:Name="ListPaiements" ItemsSource="{Binding}" DisplayMemberPath="Aff" Grid.Row="1" FontSize="14" FontFamily="Yu Gothic UI Light" Margin="10,10,10,10" BorderThickness="3,3,3,3" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"  >
+            <ListBox.Background>
+                <SolidColorBrush Color="White" Opacity="0.6"/>
+            </ListBox.Background>
+            <ListBox.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}"/>
+            </ListBox.BorderBrush>
+
+        </ListBox>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,137 @@
+﻿<Window x:Class="MultiLocations.Acceuil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MultiLocations"
+        mc:Ignorable="d"
+        Title="MultiLocations" Height="620" Width="1000" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF5DDEE3"/>
+                <GradientStop Color="White" Offset="1"/>
+                <GradientStop Color="#FFBEE7F3" Offset="0.285"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="234*"/>
+            <ColumnDefinition Width="234*"/>
+            <ColumnDefinition Width="234*"/>
+            <ColumnDefinition Width="234*"/>
+            <ColumnDefinition Width="234*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="1" Source="/car.png" Grid.Column="1"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Margin="0,0,0,5" />
+        <ComboBox x:Name="ComboLocations" ItemsSource="{Binding}" DisplayMemberPath="Aff" SelectedValuePath="IDLocation" IsSynchronizedWithCurrentItem="True" Grid.Row="1" VerticalAlignment="Center" Width="300" Grid.Column="1" Grid.ColumnSpan="3" SelectionChanged="ComboLocations_SelectionChanged"/>
+        <Button x:Name="btnQuitter" Content="Quitter" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="4" Width="90" Height="23" Margin="0,0,5,0" Click="btnQuitter_Click" >
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0.5"/>
+            </Button.Background>
+        </Button>
+        <StackPanel Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" Width="Auto
+                    " Margin="0,0,0,20" Grid.RowSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" >
+            <Button x:Name="btnNouvAjout" Content="Nouveau" Height="23" Width="150" Margin="5,5,5,5" FontSize="14" Click="btnNouvAjout_Click"  >
+                <Button.Background>
+                    <SolidColorBrush Color="#FFDDDDDD" Opacity="0.5"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnAnnuler" Content="Annuler" Width="150" Height="23" Margin="5,5,5,5" FontSize="14"  Click="btnAnnuler_Click" >
+                <Button.Background>
+                    <SolidColorBrush Color="#FFDDDDDD" Opacity="0.5"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnModifier" Content="Modifier" Width="150" Height="23" Margin="5,5,5,5" FontSize="14"  Click="btnModifier_Click" >
+                <Button.Background>
+                    <SolidColorBrush Color="#FFDDDDDD" Opacity="0.5"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <Label Content="ID : " HorizontalAlignment="Right"  Grid.Row="2" VerticalAlignment="Center" Grid.Column="0" FontWeight="Bold" FontSize="14" FontFamily="Yu Gothic UI Light" />
+        <Label x:Name="lblID"  Grid.Column="1"  HorizontalAlignment="Left" Margin="5,0,0,0" Grid.Row="2" VerticalAlignment="Center" FontSize="14" FontWeight="Bold">
+            <Label.BorderBrush>
+                <SolidColorBrush Color="#FF0078D7"/>
+            </Label.BorderBrush>
+        </Label>
+        <StackPanel Grid.Column="0" Grid.Row="3" VerticalAlignment="Center">
+            <Label Content="Date du début :"   HorizontalAlignment="Right" FontSize="14" FontFamily="Yu Gothic UI Light" />
+            <Label Content="Date de fin :"   HorizontalAlignment="Right" FontSize="14" FontFamily="Yu Gothic UI Light" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" VerticalAlignment="Center" Grid.Column="0">
+            <Label Content="Montant du paiement mensuel :" HorizontalAlignment="Right" FontSize="14" FontFamily="Yu Gothic UI Light"  />
+            <Label Content="Nombre de paiement :" HorizontalAlignment="Right" FontSize="14" FontFamily="Yu Gothic UI Light" />
+        </StackPanel>
+        <StackPanel Grid.Row="5" VerticalAlignment="Center" Grid.Column="0">
+            <Label Content="Kilométrage du début :" HorizontalAlignment="Right" FontSize="14" FontFamily="Yu Gothic UI Light"   />
+            <Label Content="Kilométrage de fin :" HorizontalAlignment="Right" FontSize="14" FontFamily="Yu Gothic UI Light"   />
+        </StackPanel>
+        <Label Content="Surcharge :" HorizontalAlignment="Right" Grid.Row="6" VerticalAlignment="Center" FontSize="14" FontFamily="Yu Gothic UI Light"/>
+
+        <StackPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" >
+            <TextBox x:Name="txtMontant"  HorizontalAlignment="Left"   Width="150" Margin="5,0,0,10" Height="22" TextChanged="TextBox_TextChanged"/>
+            <ComboBox x:Name="ComboNombre" Width="150" Height="22" HorizontalAlignment="Left" Margin="5,0,0,0" SelectedValuePath="Content" SelectionChanged="Combo_SelectionChanged">
+                <ComboBoxItem Content="12" />
+                <ComboBoxItem Content="24"/>
+                <ComboBoxItem Content="36"/>
+                <ComboBoxItem Content="48"/>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" >
+            <TextBox x:Name="txtKmDebut"  HorizontalAlignment="Left"   Width="150" Margin="5,0,0,10" Height="22" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="txtKmFin"  HorizontalAlignment="Left"   Width="150" Margin="5,0,0,0" Height="22" TextChanged="TextBox_TextChanged"/>
+        </StackPanel>
+        <TextBox x:Name="txtSurcharge" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Margin="5,0,0,0 " Height="22" TextChanged="TextBox_TextChanged"/>
+        
+        <StackPanel Grid.Row="3" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="200,0,31,0">
+            <StackPanel.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}" Opacity="0.6"/>
+            </StackPanel.Background>
+            <DatePicker x:Name="DateDebut"  FirstDayOfWeek="Monday" Margin="5,5,5,5" Width="150" HorizontalAlignment="Left" SelectedDateFormat="Short" KeyDown="Date_KeyDown" />
+            <DatePicker x:Name="DateFin"  FirstDayOfWeek="Monday" Margin="5,0,5,5" Width="150" HorizontalAlignment="Left" SelectedDateFormat="Short" KeyDown="Date_KeyDown"/>
+        </StackPanel>
+        <Label Grid.Column="2" Content="Véhicule :" HorizontalAlignment="Right"  Grid.Row="2" VerticalAlignment="Center" FontSize="14" FontFamily="Yu Gothic UI Light" />
+        <Label Grid.Column="2" Content="Client :" HorizontalAlignment="Right"  Grid.Row="3" VerticalAlignment="Center" FontSize="14" FontFamily="Yu Gothic UI Light"/>
+        <Label Grid.Column="2" Content="Termes :" HorizontalAlignment="Right"  Grid.Row="4" VerticalAlignment="Bottom" FontSize="14" FontFamily="Yu Gothic UI Light" Margin="0,0,0,15"/>
+        <ComboBox x:Name="ComboNiv" ItemsSource="{Binding}" DisplayMemberPath="Aff" SelectedValuePath="NIV" IsSynchronizedWithCurrentItem="True"  Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0 " Height="22" Width="250" SelectionChanged="Combo_SelectionChanged" />
+        <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="3">
+            <ComboBox x:Name="ComboClient" ItemsSource="{Binding}" DisplayMemberPath="Nom" SelectedValuePath="IDClient" IsSynchronizedWithCurrentItem="True"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Margin="5,0,0,0 " Height="22" SelectionChanged="Combo_SelectionChanged"/>
+            <Button x:Name="btnAffClients" Content="🔎+" Height="23" Margin="5,5,5,5" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Click="btnAffClients_Click" >
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}" Opacity="0.4"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <ComboBox x:Name="ComboTermes" ItemsSource="{Binding}" DisplayMemberPath="Aff" SelectedValuePath="IDTerme" IsSynchronizedWithCurrentItem="True" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150" Margin="5,0,0,16" Height="22" SelectionChanged="ComboTermes_SelectionChanged"/>
+
+        <StackPanel Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Right"  Width="399" VerticalAlignment="Top">
+            <Label x:Name="lblAnnee" Content="" HorizontalAlignment="Left" FontWeight="Bold" FontSize="11" FontFamily="Courier New" Foreground="#FF0936C3" />
+            <Label x:Name="lblKmMax" Content="" HorizontalAlignment="Left" FontWeight="Bold" FontSize="11" FontFamily="Courier New" Foreground="#FF0936C3" />
+            <Label x:Name="lblSurprime" Content="" HorizontalAlignment="Left" FontWeight="Bold" FontSize="11" FontFamily="Courier New" Foreground="#FF0936C3" />
+        </StackPanel>
+        <Border BorderThickness="2,2,2,2" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="5" Grid.RowSpan="5" Margin="3,0,3,0" Panel.ZIndex="-1">
+            <Border.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}"/>
+            </Border.BorderBrush>
+        </Border>
+        <Label Grid.Column="0" Content="Locations" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Grid.Row="1" FontSize="40" FontFamily="Colonna MT"  >
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <Button x:Name="btnPaiements" Content="Paiements 🔎" Width="125" Height="23" Margin="5,5,5,5" FontSize="14"  Grid.Column="3"  Grid.Row="6" HorizontalAlignment="left" VerticalAlignment="Center" Click="btnPaiements_Click">
+            <Button.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}" Opacity="0.4"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
